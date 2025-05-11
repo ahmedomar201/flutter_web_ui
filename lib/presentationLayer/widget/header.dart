@@ -1,81 +1,111 @@
 import 'package:flutter/material.dart';
-
-import '../../core/utils/responsive.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Header extends StatelessWidget {
   const Header({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        if (!Responsive.isDesktop(context))
-          IconButton(
-            icon: Icon(Icons.menu),
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
+    return Material(
+      child: Container(
+        width: double.infinity,
+        height: 76,
+        color: Colors.black,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 18),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SvgPicture.asset('assets/icons/logo.svg', width: 82, height: 40),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  NavItem(text: 'Items'),
+                  NavItem(text: 'Pricing'),
+                  NavItem(text: 'Info'),
+                  NavItem(text: 'Tasks'),
+                  NavItem(text: 'Analytics'),
+                  Container(
+                    height: 22,
+                    width: 1,
+                    color: const Color(0xFF262626),
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                  ),
+                  SvgPicture.asset(
+                    'assets/icons/notification.svg',
+                    width: 24,
+                    height: 24,
+                  ),
+                  const SizedBox(width: 20),
+
+                  SvgPicture.asset(
+                    'assets/icons/setting.svg',
+                    width: 24,
+                    height: 24,
+                  ),
+
+                  Container(
+                    height: 22,
+                    width: 1,
+                    color: const Color(0xFF262626),
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                  ),
+                  Container(
+                    width: 32,
+                    height: 32,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage("assets/images/profile.png"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  const Text(
+                    'John Doe',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  const SizedBox(width: 4),
+                  SvgPicture.asset(
+                    'assets/icons/chevron-down.svg',
+                    width: 16,
+                    height: 16,
+                  ),
+                ],
+              ),
+            ],
           ),
-        if (!Responsive.isMobile(context))
-          Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
-        // ProfileCard(),
-      ],
+        ),
+      ),
     );
   }
 }
 
-// class ProfileCard extends StatefulWidget {
-//   const ProfileCard({Key? key}) : super(key: key);
+class NavItem extends StatelessWidget {
+  final String text;
 
-//   @override
-//   State<ProfileCard> createState() => _ProfileCardState();
-// }
+  const NavItem({super.key, required this.text});
 
-// class _ProfileCardState extends State<ProfileCard> {
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       margin: EdgeInsets.only(left: 5),
-//       padding: EdgeInsets.symmetric(
-//         horizontal: 5,
-//         vertical: 16.0 / 2,
-//       ),
-//       decoration: BoxDecoration(
-//         // color: secondaryColor,
-//         borderRadius: const BorderRadius.all(Radius.circular(10)),
-//         border: Border.all(color: Colors.white10),
-//       ),
-//       child: Row(
-//         children: [
-//           Image.asset("assets/images/profile_pic.png", height: 25),
-//           // if (!Responsive.isMobile(context))
-//           // Padding(
-//           //   padding: const EdgeInsets.symmetric(horizontal: 5),
-//           //   child: Text(cubit.profileJwt!.uniqueName!),
-//           // ),
-//           if (!Responsive.isMobile(context))
-//             Padding(
-//               padding: const EdgeInsets.symmetric(
-//                 horizontal: 16.0 / 2,
-//               ),
-//               // child: Text(
-//               //   cubitLogin.profileJwt == null
-//               //       ? prefs.read('unique_name')
-//               //       : cubitLogin.profileJwt!.uniqueName!,
-//               // ),
-//             ),
-//           PopupMenuButton(
-//             itemBuilder: (BuildContext context) {
-//               return [PopupMenuItem(child: Text('Log Out'), value: 1)];
-//             },
-//             onSelected: (value) {
- 
-//             },
-//             icon: Icon(Icons.arrow_drop_down),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Text(
+        text,
+        style: const TextStyle(
+          color: Color(0xFF999999),
+          fontSize: 14,
+          fontFamily: 'Inter',
+          fontWeight: FontWeight.w400,
+        ),
+      ),
+    );
+  }
+}

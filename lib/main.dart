@@ -4,6 +4,8 @@ import 'dataLayer/cubit/app_cubit.dart';
 import 'core/utils/constansts.dart';
 import 'core/utils/injection.dart'as di;
 import 'core/utils/injection.dart';
+import 'presentationLayer/page/dashboard.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
          navigatorKey: navigatorKey,
          debugShowCheckedModeBanner: false,
-        // home:const (),
+        home: Dashboard(),
       ),
     );
   }
