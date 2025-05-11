@@ -25,72 +25,71 @@ class TripCardOption24 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-
               Stack(
                 children: [
-                    ClipRRect(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(12),
-                  topLeft: Radius.circular(12),
-                ),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: Image.asset('assets/images/pic2.png',
-                  width: double.infinity,),
-                ),
-              ),
-
-              Align(
-                alignment: Alignment.topRight,
-                child: SvgPicture.asset(
-                  'assets/icons/Buttons.svg',
-                  width: 16,
-                  height: 16,
-                ),
-              ),
-
-              // Status Chip
-              Align(
-                 alignment: Alignment.bottomCenter,
-                child: Container(
-                  width: 156,
-                  height: 35,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 6,
-                  ),
-                  decoration: BoxDecoration(
-                    color: const Color(0x19C25F30),
-                    borderRadius: BorderRadius.circular(100),
-                    border: Border.all(
-                      color: const Color(0xFFC25F30),
-                      width: 0.5,
+                  ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(12),
+                      topLeft: Radius.circular(12),
+                    ),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Image.asset(
+                        'assets/images/pic2.png',
+                        width: double.infinity,
+                      ),
                     ),
                   ),
-                  child: Row(
-                    children: [
-                      const Text(
-                        'Pending Approval',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
+
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: SvgPicture.asset(
+                      'assets/icons/Buttons.svg',
+                      width: 16,
+                      height: 16,
+                    ),
+                  ),
+
+                  // Status Chip
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      width: 156,
+                      height: 35,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 6,
+                      ),
+                      decoration: BoxDecoration(
+                        color: const Color(0x19C25F30),
+                        borderRadius: BorderRadius.circular(100),
+                        border: Border.all(
+                          color: const Color(0xFFC25F30),
+                          width: 0.5,
                         ),
                       ),
-                      SvgPicture.asset(
-                        'assets/icons/chevron-down.svg',
-                        width: 16,
-                        height: 16,
+                      child: Row(
+                        children: [
+                          const Text(
+                            'Pending Approval',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          SvgPicture.asset(
+                            'assets/icons/chevron-down.svg',
+                            width: 16,
+                            height: 16,
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-
-
                 ],
               ),
-            
+
               const SizedBox(height: 16),
 
               // Title
