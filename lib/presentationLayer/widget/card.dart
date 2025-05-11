@@ -2,56 +2,95 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class TripCardOption24 extends StatelessWidget {
+  const TripCardOption24({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 0,
-      color: const Color(0xFF171717),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      margin: const EdgeInsets.all(16),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Container(
-          height: 322,
-          width: 243.25,
+    return ClipRRect(
+      borderRadius: BorderRadius.only(
+        topRight: Radius.circular(12),
+        topLeft: Radius.circular(12),
+      ),
+      child: SizedBox(
+        height: 400,
+        width: 290,
+        child: Card(
+          elevation: 0,
+          color: const Color(0xFF171717),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.0),
+          ),
+          margin: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              // Status Chip
-              Container(
-                width: 156,
-                height: 35,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 6,
+
+              Stack(
+                children: [
+                    ClipRRect(
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(12),
+                  topLeft: Radius.circular(12),
                 ),
-                decoration: BoxDecoration(
-                  color: const Color(0x19C25F30),
-                  borderRadius: BorderRadius.circular(100),
-                  border: Border.all(
-                    color: const Color(0xFFC25F30),
-                    width: 0.5,
-                  ),
-                ),
-                child: Row(
-                  children: [
-                    const Text(
-                      'Pending Approval',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    SvgPicture.asset(
-                      'assets/icons/chevron-down.svg',
-                      width: 16,
-                      height: 16,
-                    ),
-                  ],
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Image.asset('assets/images/pic2.png',
+                  width: double.infinity,),
                 ),
               ),
 
+              Align(
+                alignment: Alignment.topRight,
+                child: SvgPicture.asset(
+                  'assets/icons/Buttons.svg',
+                  width: 16,
+                  height: 16,
+                ),
+              ),
+
+              // Status Chip
+              Align(
+                 alignment: Alignment.bottomCenter,
+                child: Container(
+                  width: 156,
+                  height: 35,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color(0x19C25F30),
+                    borderRadius: BorderRadius.circular(100),
+                    border: Border.all(
+                      color: const Color(0xFFC25F30),
+                      width: 0.5,
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      const Text(
+                        'Pending Approval',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      SvgPicture.asset(
+                        'assets/icons/chevron-down.svg',
+                        width: 16,
+                        height: 16,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+
+                ],
+              ),
+            
               const SizedBox(height: 16),
 
               // Title
@@ -97,11 +136,11 @@ class TripCardOption24 extends StatelessWidget {
                   // Avatars
                   Row(
                     children: [
-                      _buildAvatar('https://placehold.co/24x24'),
+                      buildAvatar('assets/images/profile1.png'),
                       const SizedBox(width: 8),
-                      _buildAvatar('https://placehold.co/24x24'),
+                      buildAvatar('assets/images/profile2.png'),
                       const SizedBox(width: 8),
-                      _buildAvatar('https://placehold.co/24x24'),
+                      buildAvatar('assets/images/profile3.png'),
                       const SizedBox(width: 8),
                       Container(
                         width: 24,
@@ -142,17 +181,14 @@ class TripCardOption24 extends StatelessWidget {
     );
   }
 
-  Widget _buildAvatar(String imageUrl) {
+  Widget buildAvatar(String imageUrl) {
     return Container(
       width: 24,
       height: 24,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(color: const Color(0xFF262626), width: 0.6),
-        image: DecorationImage(
-          image: NetworkImage(imageUrl),
-          fit: BoxFit.cover,
-        ),
+        image: DecorationImage(image: AssetImage(imageUrl), fit: BoxFit.cover),
       ),
     );
   }
