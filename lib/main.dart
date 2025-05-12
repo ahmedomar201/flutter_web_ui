@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_web_ui/core/utils/controller.dart';
 import 'dataLayer/cubit/app_cubit.dart';
 import 'core/utils/constansts.dart';
-import 'core/utils/injection.dart'as di;
+import 'core/utils/injection.dart' as di;
 import 'core/utils/injection.dart';
 import 'presentationLayer/page/dashboard.dart';
-
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,10 +19,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-       create: (BuildContext context) => di.sl<AppBloc>(),
+      create: (BuildContext context) => di.sl<AppBloc>(),
       child: MaterialApp(
-         navigatorKey: navigatorKey,
-         debugShowCheckedModeBanner: false,
+        scrollBehavior: MyCustomScrollBehavior(),
+
+        navigatorKey: navigatorKey,
+        debugShowCheckedModeBanner: false,
         home: Dashboard(),
       ),
     );
