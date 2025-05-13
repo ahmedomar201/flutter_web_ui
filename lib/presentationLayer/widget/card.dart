@@ -10,14 +10,15 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (Responsive.isMobile(context) || Responsive.isTablet(context)) {
+      double screenHeight = MediaQuery.of(context).size.height;
       return ClipRRect(
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(12),
           topLeft: Radius.circular(12),
         ),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.7,
-          width: MediaQuery.of(context).size.width,
+          height: screenHeight * 0.5, // Adjust height to 50% of screen height
+          width: 290,
           child: Card(
             elevation: 0,
             color: const Color(0xFF171717),
@@ -31,7 +32,7 @@ class CustomCard extends StatelessWidget {
               children: [
                 Stack(
                   children: [
-                    // Background Image
+                    // Background Image with Blur Effect
                     ClipRRect(
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(12),
@@ -61,8 +62,9 @@ class CustomCard extends StatelessWidget {
                     ),
 
                     // Status Chip
-                    Padding(
-                      padding: const EdgeInsets.only(top: 340.0, left: 16.0),
+                    Positioned(
+                      bottom: 0,
+                      left: 16,
                       child: Container(
                         width: 165,
                         height: 35,

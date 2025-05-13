@@ -200,10 +200,30 @@ class _HeaderState extends State<Header> {
                 ),
               ),
             ),
-            Container(
-              color: Colors.black,
+            Stack(
+              children: [
+                // الخط الرمادي الأساسي (Divider)
+                Divider(
+                  color: const Color(0xFF262626),
+                  height: 2, // ارتفاع الخط
+                  thickness: 2.2, // سماكة الخط
+                ),
 
-              child: Divider(color: const Color(0xFF262626)),
+                // الخط الأصفر المتحرك (Indicator)
+                AnimatedPositioned(
+                  duration: const Duration(milliseconds: 300),
+                  left:
+                      1825 +
+                      (selectedIndex *
+                          77.0), // 80 = padding الأفقي + تعديل حسب المسافة
+                  bottom: 0,
+                  child: Container(
+                    height: 2,
+                    width: 40, // عرض الخط الأصفر
+                    color: Colors.amber,
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -218,11 +238,11 @@ class NavItem extends StatelessWidget {
   final VoidCallback? onTap;
 
   const NavItem({
-    Key? key,
+    super.key,
     required this.text,
     this.isSelected = false,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

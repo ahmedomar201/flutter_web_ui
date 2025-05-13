@@ -48,34 +48,40 @@ class Dashboard extends StatelessWidget {
             children: [
               Header(),
               const SizedBox(height: 30),
-              Padding(padding: const EdgeInsets.all(16.0), child: Items()),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 70.0),
+                child: Items(),
+              ),
               const SizedBox(height: 50),
 
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        CustomCard(image: 'assets/images/pic3.png'),
-                        CustomCard(image: 'assets/images/pic1.png'),
-                        CustomCard(image: 'assets/images/pic2.png'),
-                        CustomCard(image: 'assets/images/pic3.png'),
-                        CustomCard(image: 'assets/images/pic3.png'),
-                        CustomCard(image: 'assets/images/pic3.png'),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        CustomCard(image: 'assets/images/pic3.png'),
-                        CustomCard(image: 'assets/images/pic1.png'),
-                        CustomCard(image: 'assets/images/pic2.png'),
-                        CustomCard(image: 'assets/images/pic3.png'),
-                        CustomCard(image: 'assets/images/pic3.png'),
-                        CustomCard(image: 'assets/images/pic3.png'),
-                      ],
-                    ),
-                  ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 42.0),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          CustomCard(image: 'assets/images/pic3.png'),
+                          CustomCard(image: 'assets/images/pic1.png'),
+                          CustomCard(image: 'assets/images/pic2.png'),
+                          CustomCard(image: 'assets/images/pic3.png'),
+                          CustomCard(image: 'assets/images/pic3.png'),
+                          CustomCard(image: 'assets/images/pic3.png'),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          CustomCard(image: 'assets/images/pic3.png'),
+                          CustomCard(image: 'assets/images/pic1.png'),
+                          CustomCard(image: 'assets/images/pic2.png'),
+                          CustomCard(image: 'assets/images/pic3.png'),
+                          CustomCard(image: 'assets/images/pic3.png'),
+                          CustomCard(image: 'assets/images/pic3.png'),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
