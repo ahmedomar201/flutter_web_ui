@@ -213,9 +213,9 @@ class _HeaderState extends State<Header> {
                 AnimatedPositioned(
                   duration: const Duration(milliseconds: 300),
                   left:
-                      1825 +
+                      MediaQuery.of(context).size.width * 0.615 +
                       (selectedIndex *
-                          77.0), // 80 = padding الأفقي + تعديل حسب المسافة
+                          80.0), // 80 = padding الأفقي + تعديل حسب المسافة
                   bottom: 0,
                   child: Container(
                     height: 2,
